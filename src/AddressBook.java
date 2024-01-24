@@ -1,5 +1,5 @@
-//uc1
-//Ability to create a Contacts in Address Book
+//uc2
+//Ability to add a new Contact to Address Book
 
 import java.util.Scanner;
 
@@ -27,6 +27,12 @@ class ContactAddress {
 
     }
 
+    @Override
+    public String toString() {
+        return "ContactAddress [FirstName=" + FirstName + ", LastName=" + LastName + ", Address=" + Address + ", City="
+                + City + ", Zip=" + Zip + ", PhoneNum=" + PhoneNum + ", Email=" + Email + "]";
+    }
+
 }
 
 public class AddressBook {
@@ -45,17 +51,21 @@ public class AddressBook {
 
         System.out.println("Enter the City name : ");
         String city = scanner.nextLine();
+
         System.out.println("Enter the pin Code : ");
         int pin = scanner.nextInt();
+
         System.out.println("Enter the Phone number : ");
         int num = scanner.nextInt();
+        // Consume the newline character left in the buffer
+        scanner.nextLine();
+
         System.out.println("Enter the E mail ID : ");
         String mail = scanner.nextLine();
 
         ContactAddress obj = new ContactAddress(FName, LName, Add, city, pin, num, mail);
 
-        System.out.println(obj.FirstName);
-        System.out.println(obj.PhoneNum);
+        System.out.println(obj);
 
     }
 
