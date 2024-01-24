@@ -1,6 +1,8 @@
 //uc1
 //Ability to create a Contacts in Address Book
 
+import java.util.Scanner;
+
 class ContactAddress {
 
     // instant varibles
@@ -9,18 +11,19 @@ class ContactAddress {
     String Address;
     String City;
     int Zip;
-    long PhoneNum;
+    int PhoneNum;
     String Email;
 
     // constructor
-    public ContactAddress(String firstname, String LastName, String address, String city, int zip, int phonenum) {
+    public ContactAddress(String firstname, String LastName, String address, String city, int pins, int nums,
+            String mail) {
         this.FirstName = firstname;
         this.LastName = LastName;
         this.Address = address;
         this.City = city;
-        this.Zip = zip;
-        this.PhoneNum = phonenum;
-        this.Email = "heeneth123@gmail.com";
+        this.Zip = pins;
+        this.PhoneNum = nums;
+        this.Email = mail;
 
     }
 
@@ -29,8 +32,27 @@ class ContactAddress {
 public class AddressBook {
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program");
+        Scanner scanner = new Scanner(System.in);
 
-        ContactAddress obj = new ContactAddress("heeneth", "Sai", "Chennai", null, 603203, 123821839);
+        System.out.println("Enter the First name (str): ");
+        String FName = scanner.nextLine();
+
+        System.out.println("Enter the Last name (str) : ");
+        String LName = scanner.nextLine();
+
+        System.out.println("Enter the address : ");
+        String Add = scanner.nextLine();
+
+        System.out.println("Enter the City name : ");
+        String city = scanner.nextLine();
+        System.out.println("Enter the pin Code : ");
+        int pin = scanner.nextInt();
+        System.out.println("Enter the Phone number : ");
+        int num = scanner.nextInt();
+        System.out.println("Enter the E mail ID : ");
+        String mail = scanner.nextLine();
+
+        ContactAddress obj = new ContactAddress(FName, LName, Add, city, pin, num, mail);
 
         System.out.println(obj.FirstName);
         System.out.println(obj.PhoneNum);
