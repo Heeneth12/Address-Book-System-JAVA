@@ -1,18 +1,27 @@
-## Getting Started
+# Address Book Program
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+## Introduction
+Welcome to the Address Book Program! This Java application allows you to create contacts and store their information in an address book.
 
-## Folder Structure
+## Features
+- **Create Contacts:** The program enables you to create contacts with various details, such as first name, last name, address, city, zip code, phone number, and email.
+- **Default Email:** The default email for each contact is set to "heeneth123@gmail.com".
+- **Display Information:** You can display information about a contact, such as the first name and phone number.
 
-The workspace contains two folders by default, where:
+## How to Use
+1. **Run the Program:** Execute the `AddressBook.java` file to run the program.
+   ```bash
+   javac AddressBook.java
+   java AddressBook
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+##Create Contacts:
+In the main method, create an instance of the ContactAddress class to represent a contact. Provide the necessary details such as first name, last name, etc.
+ContactAddress obj = new ContactAddress("heeneth", "Sai", "Chennai", null, 603203, 123821839);
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+##Display Information:
+Print the desired information about the contact
+System.out.println(obj.FirstName);
+System.out.println(obj.PhoneNum);
+##Version
+1.0.0 uc1
