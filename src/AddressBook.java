@@ -1,91 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class ContactAddress {
-    String FirstName;
-    String LastName;
-    String Address;
-    String City;
-    int Zip;
-    int PhoneNum;
-    String Email;
-
-    public ContactAddress(String firstname, String LastName, String address, String city, int pins, int nums,
-            String mail) {
-        this.FirstName = firstname;
-        this.LastName = LastName;
-        this.Address = address;
-        this.City = city;
-        this.Zip = pins;
-        this.PhoneNum = nums;
-        this.Email = mail;
-    }
-
-    // Getter methods for accessing private fields
-    public String getFirstName() {
-        return FirstName;
-    }
-
-    public String getLastName() {
-        return LastName;
-    }
-
-    public String getAddress() {
-        return Address;
-    }
-
-    public String getCity() {
-        return City;
-    }
-
-    public int getZip() {
-        return Zip;
-    }
-
-    public int getPhoneNum() {
-        return PhoneNum;
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    // Setter methods for modifying private fields
-    public void setFirstName(String firstName) {
-        FirstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        LastName = lastName;
-    }
-
-    public void setAddress(String address) {
-        Address = address;
-    }
-
-    public void setCity(String city) {
-        City = city;
-    }
-
-    public void setZip(int zip) {
-        Zip = zip;
-    }
-
-    public void setPhoneNum(int phoneNum) {
-        PhoneNum = phoneNum;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "ContactAddress [FirstName=" + FirstName + ", LastName=" + LastName + ", Address=" + Address + ", City="
-                + City + ", Zip=" + Zip + ", PhoneNum=" + PhoneNum + ", Email=" + Email + "]";
-    }
-}
-
 public class AddressBook {
     private static ArrayList<ContactAddress> addressBook = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
@@ -113,6 +28,26 @@ public class AddressBook {
         } else {
             System.out.println("NO changes done in Contact Data");
 
+        }
+        System.out.println("If you want to add new contact enter {yes} then {no}");
+        String toAdd = scanner.nextLine();
+        if (toAdd.equalsIgnoreCase("yes")) {
+            addNewContact();
+        } else {
+            System.out.println("no new Contact is add");
+        }
+
+        System.out.println("If you want yo Delete enter {yes} then {no}");
+        String toDelete = scanner.nextLine();
+        if (toDelete == "yes") {
+            deleteContact();
+
+        } else {
+            System.out.println("No contact is deleted");
+        }
+        System.out.println("All Contacts in the Address Book:");
+        for (ContactAddress contact : addressBook) {
+            System.out.println(contact);
         }
 
     }
@@ -182,4 +117,25 @@ public class AddressBook {
         }
         System.out.println("Contact not found with the given First name.");
     }
+
+    private static void deleteContact() {
+        System.out.println("Enter the First name of the contact to delete: ");
+        String contactToDelete = scanner.nextLine();
+
+        boolean contactFound = false;
+        for (ContactAddress contact : addressBook) {
+            if (contact.getFirstName().equalsIgnoreCase(contactToDelete)) {
+                addressBook.remove(contact);
+                contactFound = true;
+                System.out.println("Contact deleted successfully.");
+                break;
+            }
+        }
+
+        if (!contactFound) {
+            System.out.println("Contact not found with the given First name.");
+        }
+
+    }
+
 }
