@@ -47,10 +47,27 @@ public class AddressBook {
 
         }
 
-        //
-        data.searchUser_City();
+        // logic to search user by city name
+        System.out.println("If you want to Search enter {yes} then {no}");
+        String toSearch = scanner.nextLine();
+        if (toSearch.equalsIgnoreCase("yes")) {
+            data.searchUser_City();
 
-        // logic to delete contact data
+        } else {
+            System.out.println("No Such Option Found!");
+        }
+
+        // logic to show all the person by a city
+        System.out.println("If you want to see enter user -> city {yes} then {no}");
+        String toShowAll = scanner.nextLine();
+
+        if (toShowAll.equalsIgnoreCase("yes")) {
+            data.viewAllPersonaByCity();
+
+        } else {
+            System.out.println("user not want to see any data ");
+        }
+
         System.out.println("If you want yo Delete enter {yes} then {no}");
         String toDelete = scanner.nextLine();
         if (toDelete.equalsIgnoreCase("yes")) {

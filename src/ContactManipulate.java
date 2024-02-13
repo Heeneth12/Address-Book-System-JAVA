@@ -108,6 +108,8 @@ public class ContactManipulate extends DataBase {
             System.out.println(i);
         }
 
+        // UserData.stream().sorted().forEach(System.out::println);
+
     }
 
     // logic to search user by city
@@ -119,6 +121,14 @@ public class ContactManipulate extends DataBase {
         UserData.stream()
                 .filter(contact -> contact.getCity().equalsIgnoreCase(cityName))
                 .map(ContactAddress::getFirstName) // Extracting only the first names
+                .forEach(System.out::println);
+
+    }
+
+    // logic to view all the persona by a city
+    public void viewAllPersonaByCity() {
+        UserData.stream()
+                .map(n -> n.getFirstName() + " " + n.getLastName() + " " + n.getCity())
                 .forEach(System.out::println);
 
     }
