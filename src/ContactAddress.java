@@ -81,4 +81,5 @@ class ContactAddress {
         return "ContactAddress [FirstName=" + FirstName + ", LastName=" + LastName + ", Address=" + Address + ", City="
                 + City + ", Zip=" + Zip + ", PhoneNum=" + PhoneNum + ", Email=" + Email + "]";
     }
+
 }
