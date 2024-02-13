@@ -47,6 +47,9 @@ public class AddressBook {
 
         }
 
+        //
+        data.searchUser_City();
+
         // logic to delete contact data
         System.out.println("If you want yo Delete enter {yes} then {no}");
         String toDelete = scanner.nextLine();

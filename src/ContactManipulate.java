@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class ContactManipulate extends DataBase {
     static Scanner scanner = new Scanner(System.in);
@@ -108,4 +109,18 @@ public class ContactManipulate extends DataBase {
         }
 
     }
+
+    // logic to search user by city
+    public void searchUser_City() {
+
+        System.out.println("Enter the City name to serach user:");
+        String cityName = scanner.nextLine();
+
+        UserData.stream()
+                .filter(contact -> contact.getCity().equalsIgnoreCase(cityName))
+                .map(ContactAddress::getFirstName) // Extracting only the first names
+                .forEach(System.out::println);
+
+    }
+
 }
