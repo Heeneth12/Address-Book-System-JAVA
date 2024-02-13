@@ -19,7 +19,7 @@ public class AddressBook {
             String contactToEdit = scanner.nextLine();
             data.editContact(contactToEdit);
 
-            // Print all contacts in the address bookheene
+            // Print all contacts in the address bookheeneyes
             System.out.println("All Contacts in the Address Book:");
             data.showContactData();
 
@@ -58,7 +58,7 @@ public class AddressBook {
         }
 
         // logic to show all the person by a city
-        System.out.println("If you want to see enter user -> city {yes} then {no}");
+        System.out.println("If you want to see total user with city name (user -> city) {yes} then {no}");
         String toShowAll = scanner.nextLine();
 
         if (toShowAll.equalsIgnoreCase("yes")) {
@@ -68,6 +68,18 @@ public class AddressBook {
             System.out.println("user not want to see any data ");
         }
 
+        // methode to see count of users in per city
+        System.out.println("If you want to see count number of user in city enter {yes} then {no}");
+        String toSeeCount = scanner.nextLine();
+
+        if (toSeeCount.equalsIgnoreCase("yes")) {
+            data.getCount();
+
+        } else {
+            System.out.println("user not want to see any data ");
+        }
+
+        // methode to delete user data s
         System.out.println("If you want yo Delete enter {yes} then {no}");
         String toDelete = scanner.nextLine();
         if (toDelete.equalsIgnoreCase("yes")) {

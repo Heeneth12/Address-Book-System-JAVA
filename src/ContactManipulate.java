@@ -128,8 +128,20 @@ public class ContactManipulate extends DataBase {
     // logic to view all the persona by a city
     public void viewAllPersonaByCity() {
         UserData.stream()
-                .map(n -> n.getFirstName() + " " + n.getLastName() + " " + n.getCity())
+                .map(n -> n.getFirstName() + " " + n.getLastName() + "  --> " + n.getCity())
                 .forEach(System.out::println);
+
+    }
+
+    // logic to get number of contact persons
+    public void getCount() {
+        System.out.println("Enter the City name to serach user:");
+        String cityName = scanner.nextLine();
+
+        long count = UserData.stream()
+                .filter(contact -> contact.getCity().equalsIgnoreCase(cityName)).count();
+
+        System.out.println("In " + cityName + " there are " + count + " persons ");
 
     }
 
