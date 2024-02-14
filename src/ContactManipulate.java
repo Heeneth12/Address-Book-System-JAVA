@@ -1,5 +1,5 @@
+import java.util.Comparator;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 public class ContactManipulate extends DataBase {
     static Scanner scanner = new Scanner(System.in);
@@ -103,13 +103,9 @@ public class ContactManipulate extends DataBase {
     }
 
     public void showContactData() {
-
-        for (ContactAddress i : UserData) {
-            System.out.println(i);
-        }
-
-        // UserData.stream().sorted().forEach(System.out::println);
-
+        UserData.stream()
+                .sorted(Comparator.comparing(ContactAddress::getFirstName))
+                .forEach(System.out::println);
     }
 
     // logic to search user by city
